@@ -17,8 +17,8 @@
       "slug": "nature"
     },
     {
-      "name": "story",
-      "slug": "story"
+      "name": "other",
+      "slug": "other"
     }
   ],
   "homepage": {
@@ -28,18 +28,18 @@
       "shareImage": null
     },
     "hero": {
-      "title": "Strapi Template Blog!"
+      "title": "This is a clever and catchy blog title"
     }
   },
   "writers": [
     {
-      "name": "David Doe",
-      "email": "daviddoe@strapi.io",
+      "name": "Jeremiah Quill",
+      "email": "jcq5010@gmail.com",
       "picture": null
     },
     {
-      "name": "Sarah Baker",
-      "email": "sarahbaker@strapi.io",
+      "name": "Ollie Quill",
+      "email": "olliequill@gmail.com",
       "picture": null
     }
   ],

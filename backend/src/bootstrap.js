@@ -130,7 +130,7 @@ async function importWriters() {
   return Promise.all(
     writers.map(async (writer) => {
       const files = {
-        picture: getFileData(`${writer.email}.jpg`),
+        picture: getFileData(`${writer.email}.png`),
       };
       return createEntry({
         model: "writer",

@@ -1,4 +1,5 @@
 import Moment from "react-moment";
+// import ReactMarkdown from "markdown-to-jsx";
 import ReactMarkdown from "react-markdown";
 
 import Seo from "@/ui/seo";
@@ -17,6 +18,8 @@ const Article = ({ article, categories }) => {
     article: true,
   };
 
+  console.log(typeof article.attributes.content);
+
   return (
     <Layout categories={categories.data}>
       <Seo seo={seo} />
@@ -30,7 +33,11 @@ const Article = ({ article, categories }) => {
       </div>
       <div className="uk-section">
         <div className="uk-container uk-container-small">
-          <ReactMarkdown children={article.attributes.content} />
+          <ReactMarkdown
+            className="line-break"
+            allowDangerousHtml={true}
+            children={article.attributes.content}
+          />
           <hr className="uk-divider-small" />
           <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
             <div>
