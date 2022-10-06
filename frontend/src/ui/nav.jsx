@@ -1,34 +1,34 @@
 import React from "react";
 import Link from "next/link";
+import { useScrollPosition } from "../useScrollPosition";
 
-const Nav = ({ categories }) => {
+const Nav = ({ categories, classes }) => {
+  const scrollPosition = useScrollPosition();
+
   return (
-    <div>
-      <nav className="uk-navbar-container" data-uk-navbar>
-        <div className="uk-navbar-left">
-          <ul className="uk-navbar-nav">
-            <li>
-              <Link href="/">
-                <a className="text-red-500">Strapi Blog</a>
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="uk-navbar-right">
-          <ul className="uk-navbar-nav">
+    <header
+      className={`w-full flex justify-between transition-all sticky top-0 z-10 ${
+        scrollPosition > 50 ? "shadow-md" : ""
+      }`}>
+      <div className={`w-full flex justify-between max-w-6xl m-auto py-8 bg-white`}>
+        <Link href="/">
+          <a className="text-red-500">Strapi Blog</a>
+        </Link>
+        <nav className="">
+          <ul className="flex gap-5">
             {categories.map((category) => {
               return (
                 <li key={category.id}>
                   <Link href={`/category/${category.attributes.slug}`}>
-                    <a className="uk-link-reset">{category.attributes.name}</a>
+                    <a className="">{category.attributes.name}</a>
                   </Link>
                 </li>
               );
             })}
           </ul>
-        </div>
-      </nav>
-    </div>
+        </nav>
+      </div>
+    </header>
   );
 };
 

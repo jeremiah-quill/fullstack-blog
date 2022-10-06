@@ -1,6 +1,7 @@
 import Moment from "react-moment";
 // import ReactMarkdown from "markdown-to-jsx";
 import ReactMarkdown from "react-markdown";
+import Image from "@/ui/image";
 
 import Seo from "@/ui/seo";
 import Layout from "@/ui/layout";
@@ -18,51 +19,50 @@ const Article = ({ article, categories }) => {
     article: true,
   };
 
-  console.log(typeof article.attributes.content);
-
   return (
     <Layout categories={categories.data}>
       <Seo seo={seo} />
-      <div
-        id="banner"
-        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
-        data-src={imageUrl}
-        data-srcset={imageUrl}
-        data-uk-img>
-        <h1>{article.attributes.title}</h1>
-      </div>
-      <div className="uk-section">
-        <div className="uk-container uk-container-small">
-          <ReactMarkdown
-            className="line-break"
-            allowDangerousHtml={true}
-            children={article.attributes.content}
-          />
-          <hr className="uk-divider-small" />
-          <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
-            <div>
-              {article.attributes.author.data.attributes.picture && (
-                <img
-                  src={getStrapiMedia(article.attributes.author.data.attributes.picture)}
-                  alt={
-                    article.attributes.author.data.attributes.picture.data.attributes
-                      .alternativeText
-                  }
-                  style={{
-                    position: "static",
-                    borderRadius: "20%",
-                    height: 60,
-                  }}
-                />
-              )}
+
+      <div className="max-w-3xl m-auto my-16">
+        <Image image={article.attributes.image} />
+        {/* <h1>{article.attributes.title}</h1> */}
+        {/* </NextImage> */}
+        <div className="">
+          <div className="">
+            {/* <ReactMarkdown
+              className="line-break"
+              allowDangerousHtml={true}
+              children={article.attributes.content}
+            /> */}
+            <div className="my-16">
+              <div dangerouslySetInnerHTML={{ __html: article.attributes.content }}></div>
             </div>
-            <div className="uk-width-expand">
-              <p className="uk-margin-remove-bottom">
-                By {article.attributes.author.data.attributes.name}
-              </p>
-              <p className="uk-text-meta uk-margin-remove-top">
-                <Moment format="MMM Do YYYY">{article.attributes.published_at}</Moment>
-              </p>
+            <hr className="my-8" />
+            <div className="">
+              <div>
+                {article.attributes.author.data.attributes.picture && (
+                  <img
+                    src={getStrapiMedia(article.attributes.author.data.attributes.picture)}
+                    alt={
+                      article.attributes.author.data.attributes.picture.data.attributes
+                        .alternativeText
+                    }
+                    style={{
+                      position: "static",
+                      borderRadius: "20%",
+                      height: 60,
+                    }}
+                  />
+                )}
+              </div>
+              <div className="uk-width-expand">
+                <p className="uk-margin-remove-bottom">
+                  By {article.attributes.author.data.attributes.name}
+                </p>
+                <p className="uk-text-meta uk-margin-remove-top">
+                  <Moment format="MMM Do YYYY">{article.attributes.published_at}</Moment>
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -2,7 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
+* {
+  box-sizing: border-box;
+}
+
+/* Move these style default resets so they only are applied on blogs */
+/* Default CSS settings for UL or OL tag: */
+ul,
+ol {
+  display: block;
+  list-style: disc outside none;
+  margin: 1em 0;
+  padding: 0 0 0 40px;
+}
+ol {
+  list-style-type: decimal;
+}
+/* Default CSS settings for LI tag: */
+
+li {
+  display: list-item;
+}
+/* Style nested list items as well: */
+
+ul ul,
+ol ul {
+  list-style-type: circle;
+  margin-left: 15px;
+}
+ol ol,
+ul ol {
+  list-style-type: lower-latin;
+  margin-left: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* html,
 body,
 #__next {
   min-height: 100vh;
@@ -52,4 +92,22 @@ img:hover {
 
 .line-break {
   white-space: pre-wrap;
+} */
+
+.image-container {
+  width: 100%;
+}
+.image-container div {
+  position: unset !important;
+  height: 100% !important;
+  /* object-fit: cover; */
+}
+
+.image-container img {
+  object-fit: cover !important;
+  border-radius: 0.5rem;
+}
+
+.image-container span {
+  height: 100% !important;
 }

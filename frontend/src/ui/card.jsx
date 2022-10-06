@@ -2,17 +2,18 @@ import React from "react";
 import Link from "next/link";
 import NextImage from "@/ui/image";
 
-const Card = ({ article }) => {
-  console.log("hi");
-  console.log(article);
+const Card = ({ article, xClassNames = "" }) => {
   return (
     <Link href={`/article/${article.attributes.slug}`}>
-      <a className="uk-link-reset">
-        <div className="uk-card uk-card-muted">
-          <div className="uk-card-media-top">
+      <a className="max-w-6xl">
+        <div className={"image-container h-full"}>
+          <NextImage image={article.attributes.image} />
+        </div>
+        {/* <div className="">
+          <div className="">
             <NextImage image={article.attributes.image} />
           </div>
-          <div className="uk-card-body">
+          <div className="">
             <p id="category" className="uk-text-uppercase">
               {article.attributes.category.data.attributes.name}
             </p>
@@ -20,7 +21,7 @@ const Card = ({ article }) => {
               {article.attributes.title}
             </p>
           </div>
-        </div>
+        </div> */}
       </a>
     </Link>
   );

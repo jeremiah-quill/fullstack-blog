@@ -1,19 +1,27 @@
 import React from "react";
 import Articles from "@/ui/articles";
+import CategoryFilter from "@/ui/categoryFilter";
 import Layout from "@/ui/layout";
 import Seo from "@/ui/seo";
 import { fetchAPI } from "../lib/api";
 
 const Home = ({ articles, categories, homepage }) => {
+  console.log(categories);
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.attributes.seo} />
-      <div className="uk-section">
-        <div className="uk-container uk-container-large">
-          <h1>{homepage.attributes.hero.title}</h1>
-          <Articles articles={articles} />
+      {/* <div className=""> */}
+      <div className="my-16">
+        <div className="flex justify-center">
+          <div className="my-8">
+            <h1 className="my-4 text-5xl m-auto font-bold">{homepage.attributes.hero.title}</h1>
+            <h2 className="text-xl">Keep reading to learn more.</h2>
+          </div>
         </div>
+        <CategoryFilter categories={categories} />
       </div>
+      <Articles articles={articles} />
+      {/* </div> */}
     </Layout>
   );
 };

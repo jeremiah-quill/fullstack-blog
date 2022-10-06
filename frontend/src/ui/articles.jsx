@@ -2,25 +2,15 @@ import React from "react";
 import Card from "@/ui/card";
 
 const Articles = ({ articles }) => {
-  const leftArticlesCount = Math.ceil(articles.length / 5);
-  const leftArticles = articles.slice(0, leftArticlesCount);
-  const rightArticles = articles.slice(leftArticlesCount, articles.length);
-
+  // remove last item in array
+  // const withoutLast = articles.slice(0, -1);
   return (
-    <div>
-      <div className="uk-child-width-1-2@s" data-uk-grid="true">
-        <div>
-          {leftArticles.map((article, i) => {
-            return <Card article={article} key={`article__left__${article.attributes.slug}`} />;
-          })}
-        </div>
-        <div>
-          <div className="uk-child-width-1-2@m uk-grid-match" data-uk-grid>
-            {rightArticles.map((article, i) => {
-              return <Card article={article} key={`article__left__${article.attributes.slug}`} />;
-            })}
-          </div>
-        </div>
+    <div className="max-w-6xl m-auto">
+      <div className="grid grid-cols-2 gap-5">
+        {/* <Card article={articles[0]} xClassNames="col-span-full" /> */}
+        {articles.map((article, i) => (
+          <Card article={article} key={article.attributes.slug} id={article.attributes.slug} />
+        ))}
       </div>
     </div>
   );
