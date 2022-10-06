@@ -1,29 +1,29 @@
 import React from "react";
 import Link from "next/link";
 import NextImage from "@/ui/image";
+import Moment from "react-moment";
 
-const Card = ({ article, xClassNames = "" }) => {
+const Card = ({ article, classes = "" }) => {
   return (
-    <Link href={`/article/${article.attributes.slug}`}>
-      <a className="max-w-6xl">
-        <div className={"image-container h-full"}>
-          <NextImage image={article.attributes.image} />
-        </div>
-        {/* <div className="">
-          <div className="">
+    <div className="flex flex-col">
+      <Link href={`/article/${article.attributes.slug}`}>
+        <a className={`block no-underline text-inherit grow`}>
+          <div className={"image-container h-[300px]"}>
             <NextImage image={article.attributes.image} />
           </div>
-          <div className="">
-            <p id="category" className="uk-text-uppercase">
-              {article.attributes.category.data.attributes.name}
-            </p>
-            <p id="title" className="uk-text-large">
-              {article.attributes.title}
-            </p>
-          </div>
-        </div> */}
-      </a>
-    </Link>
+        </a>
+      </Link>
+      <div className="pt-2">
+        <h1 className="text-xl font-bold mb-2">{article.attributes.title}</h1>
+        <div className="flex justify-between items-center">
+          <Moment format="MMM Do YYYY">{article.attributes.published_at}</Moment>
+          <ul className="flex gap-2">
+            <li className="list-none py-1 px-3 rounded-[45px] bg-[dodgerblue] text-white">test</li>
+            <li className="list-none py-1 px-3 rounded-[45px] bg-[dodgerblue] text-white">test</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   );
 };
 

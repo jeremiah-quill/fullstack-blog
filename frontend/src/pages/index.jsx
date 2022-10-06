@@ -13,7 +13,7 @@ const Home = ({ articles, categories, homepage }) => {
       {/* <div className=""> */}
       <div className="my-16">
         <div className="flex justify-center">
-          <div className="my-8">
+          <div className="my-8 px-4">
             <h1 className="my-4 text-5xl m-auto font-bold">{homepage.attributes.hero.title}</h1>
             <h2 className="text-xl">Keep reading to learn more.</h2>
           </div>
